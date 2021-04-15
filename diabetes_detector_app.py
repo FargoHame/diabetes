@@ -14,8 +14,7 @@ from sklearn.model_selection import train_test_split
 import seaborn as sns
 
 
-image = Image.open('Skillocity_logo.png')
-st.image(image, use_column_width=True)
+
 
 st.markdown('''
 # Diabetes Detector 
