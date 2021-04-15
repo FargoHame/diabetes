@@ -1,5 +1,5 @@
 I have coded this in Visual Studio 
 Required packages : streamlit, pandas, PIL, numpy, matplotlib, plotly, seaborn, sklearn
-This code uses the Rndom Forest Classifier algorithm of Machine Learning to detect whether a patient has diabetes. Dataset i sprovided by Kaggle
+This code uses the Rndom Forest Classifier algorithm of Machine Learning to detect whether a patient has diabetes. Dataset provided by Kaggle
 The parametres used in the algorithm are insulin, glucose, blood pressure, bmi, daibetes pedigree function, age, pregnancies, skinn thickness
 Please do conatct me for any queries/suggestions/errors 
