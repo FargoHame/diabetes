@@ -20,7 +20,7 @@ st.markdown('''
 # Diabetes Detector 
 This app detects if you have diabetes based on Machine Learning!
 - App built by Pranav Sawant and Anshuman Shukla of Team Skillocity.
-- Dataset resource: Kaggle
+- Dataset resource: UC Irvine and United States National Institutes of Health.
 - Note: User inputs are taken from the sidebar. It is located at the top left of the page (arrow symbol). The values of the parameters can be changed from the sidebar. 
 ''')
 st.write('---')
