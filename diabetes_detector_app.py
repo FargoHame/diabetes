@@ -65,7 +65,7 @@ def user_report():
   report_data = pd.DataFrame(user_report_data, index=[0])
   return report_data
 
-
+st.sidebar.header('User Input Features')
 
 
 # PATIENT DATA
@@ -182,3 +182,6 @@ else:
 st.title(output)
 st.subheader('Accuracy: ')
 st.write(str(accuracy_score(y_test, rf.predict(x_test))*100)+'%')
+
+st.subheader('Lets raise awareness for diabetes')
+st.write(@World Diabetes Day : 14 November)
