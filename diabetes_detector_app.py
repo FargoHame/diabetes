@@ -65,7 +65,7 @@ def user_report():
   report_data = pd.DataFrame(user_report_data, index=[0])
   return report_data
 
-st.sidebar.header('User Input Features')
+
 
 
 # PATIENT DATA
