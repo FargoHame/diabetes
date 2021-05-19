@@ -184,4 +184,4 @@ st.subheader('Accuracy: ')
 st.write(str(accuracy_score(y_test, rf.predict(x_test))*100)+'%')
 
 st.subheader('Lets raise awareness for diabetes')
-st.write(@World Diabetes Day : 14 November)
+st.write("World Diabetes Day: 14 November")
