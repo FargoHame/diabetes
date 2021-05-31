@@ -27,20 +27,20 @@ st.write('---')
 
 df = pd.read_csv(r'diabetes.csv')
 
-# HEADINGS
+
 st.title('Diabetes Detector')
 st.sidebar.header('Patient Data')
 st.subheader('Training Dataset')
 st.write(df.describe())
 
 
-# X AND Y DATA
+
 x = df.drop(['Outcome'], axis = 1)
 y = df.iloc[:, -1]
 x_train, x_test, y_train, y_test = train_test_split(x,y, test_size = 0.2, random_state = 0)
 
 
-# FUNCTION
+
 def user_report():
   glucose = st.sidebar.slider('Glucose', 0,200, 100 )
   insulin = st.sidebar.slider('Insulin', 0,846, 100 )
@@ -68,7 +68,7 @@ def user_report():
 
 
 
-# PATIENT DATA
+
 user_data = user_report()
 st.subheader('Patient Data')
 st.write(user_data)
@@ -76,26 +76,24 @@ st.write(user_data)
 
 
 
-# MODEL
+
 rf  = RandomForestClassifier()
 rf.fit(x_train, y_train)
 user_result = rf.predict(user_data)
 
 
 
-# VISUALISATIONS
+
 st.title('Graphical Patient Report')
 
 
 
-# COLOR FUNCTION
 if user_result[0]==0:
   color = 'blue'
 else:
   color = 'red'
 
 
-# Age vs Glucose
 st.header('Glucose Value Graph (Yours vs Others)')
 fig_glucose = plt.figure()
 ax3 = sns.scatterplot(x = 'Age', y = 'Glucose', data = df, hue = 'Outcome' , palette='Purples')
@@ -106,7 +104,7 @@ plt.title('0 - Healthy & 1 - Unhealthy')
 st.pyplot(fig_glucose)
 
 
-# Age vs Insulin
+
 st.header('Insulin Value Graph (Yours vs Others)')
 fig_i = plt.figure()
 ax9 = sns.scatterplot(x = 'Age', y = 'Insulin', data = df, hue = 'Outcome', palette='rainbow')
@@ -117,7 +115,7 @@ plt.title('0 - Healthy & 1 - Unhealthy')
 st.pyplot(fig_i)
 
 
-# Age vs Bp
+
 st.header('Blood Pressure Value Graph (Yours vs Others)')
 fig_bp = plt.figure()
 ax5 = sns.scatterplot(x = 'Age', y = 'BloodPressure', data = df, hue = 'Outcome', palette='Blues')
@@ -128,7 +126,7 @@ plt.title('0 - Healthy & 1 - Unhealthy')
 st.pyplot(fig_bp)
 
 
-# Age vs BMI
+
 st.header('BMI Value Graph (Yours vs Others)')
 fig_bmi = plt.figure()
 ax11 = sns.scatterplot(x = 'Age', y = 'BMI', data = df, hue = 'Outcome', palette='Greens')
@@ -139,7 +137,7 @@ plt.title('0 - Healthy & 1 - Unhealthy')
 st.pyplot(fig_bmi)
 
 
-# Age vs Diabetes Pedigree Function
+
 st.header('DPF Value Graph (Yours vs Others)')
 fig_dpf = plt.figure()
 ax13 = sns.scatterplot(x = 'Age', y = 'DiabetesPedigreeFunction', data = df, hue = 'Outcome', palette='rocket')
@@ -150,7 +148,7 @@ plt.title('0 - Healthy & 1 - Unhealthy')
 st.pyplot(fig_dpf)
 
 
-# Age vs Pregnancies
+
 st.header('Pregnancy count Graph (Yours vs Others)')
 fig_preg = plt.figure()
 ax1 = sns.scatterplot(x = 'Age', y = 'Pregnancies', data = df, hue = 'Outcome', palette = 'magma')
@@ -161,7 +159,7 @@ plt.title('0 - Healthy & 1 - Unhealthy')
 st.pyplot(fig_preg)
 
 
-# Age vs Skin Thickness
+
 st.header('Skin Thickness Value Graph (Yours vs Others)')
 fig_st = plt.figure()
 ax7 = sns.scatterplot(x = 'Age', y = 'SkinThickness', data = df, hue = 'Outcome', palette='Reds')
@@ -172,7 +170,7 @@ plt.title('0 - Healthy & 1 - Unhealthy')
 st.pyplot(fig_st)
 
 
-# OUTPUT
+
 st.subheader('Your Report: ')
 output=''
 if user_result[0]==0:
