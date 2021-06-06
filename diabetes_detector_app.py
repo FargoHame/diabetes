@@ -44,7 +44,7 @@ x_train, x_test, y_train, y_test = train_test_split(x,y, test_size = 0.2, random
 def user_report():
   glucose = st.sidebar.slider('Glucose', 0,200, 100 )
   insulin = st.sidebar.slider('Insulin', 0,846, 100 )
-  bp = st.sidebar.slider('Blood Pressure', 0,122, 90 )
+  bp = st.sidebar.slider('Blood Pressure', 0,260, 90 )
   bmi = st.sidebar.slider('BMI', 0,67, 25 )
   dpf = st.sidebar.slider('Diabetes Pedigree Function', 0.0,2.4, 0.90 )
   age = st.sidebar.slider('Age', 21,88, 45 )
@@ -121,7 +121,7 @@ fig_bp = plt.figure()
 ax5 = sns.scatterplot(x = 'Age', y = 'BloodPressure', data = df, hue = 'Outcome', palette='Blues')
 ax6 = sns.scatterplot(x = user_data['age'], y = user_data['bp'], s = 150, color = color)
 plt.xticks(np.arange(10,100,5))
-plt.yticks(np.arange(0,130,10))
+plt.yticks(np.arange(0,260,20))
 plt.title('0 - Healthy & 1 - Unhealthy')
 st.pyplot(fig_bp)
 
