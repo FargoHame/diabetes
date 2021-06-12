@@ -3,7 +3,7 @@
 #Works perfectly!
 #85+ accuracy, not bad Pranav
 
-
+#import statements
 import streamlit as st
 import pandas as pd
 from PIL import Image
@@ -17,7 +17,7 @@ import seaborn as sns
 
 
 
-
+#App description
 st.markdown('''
 # Diabetes Detector 
 This app detects if you have diabetes based on Machine Learning!
@@ -29,20 +29,19 @@ st.write('---')
 
 df = pd.read_csv(r'diabetes.csv')
 
-
-st.title('Diabetes Detector')
+#titles
 st.sidebar.header('Patient Data')
 st.subheader('Training Dataset')
 st.write(df.describe())
 
 
-
+#train data. Fun!
 x = df.drop(['Outcome'], axis = 1)
 y = df.iloc[:, -1]
 x_train, x_test, y_train, y_test = train_test_split(x,y, test_size = 0.2, random_state = 0)
 
 
-
+#User reports
 def user_report():
   glucose = st.sidebar.slider('Glucose', 0,200, 100 )
   insulin = st.sidebar.slider('Insulin', 0,846, 100 )
@@ -85,7 +84,7 @@ user_result = rf.predict(user_data)
 
 
 
-
+#Visualizations, this is where the beauty begins.
 st.title('Graphical Patient Report')
 
 
@@ -95,7 +94,7 @@ if user_result[0]==0:
 else:
   color = 'red'
 
-
+#Good old glucose
 st.header('Glucose Value Graph (Yours vs Others)')
 fig_glucose = plt.figure()
 ax3 = sns.scatterplot(x = 'Age', y = 'Glucose', data = df, hue = 'Outcome' , palette='Purples')
@@ -106,7 +105,7 @@ plt.title('0 - Healthy & 1 - Unhealthy')
 st.pyplot(fig_glucose)
 
 
-
+#Insulin
 st.header('Insulin Value Graph (Yours vs Others)')
 fig_insulin = plt.figure()
 ax9 = sns.scatterplot(x = 'Age', y = 'Insulin', data = df, hue = 'Outcome', palette='rainbow')
@@ -117,7 +116,7 @@ plt.title('0 - Healthy & 1 - Unhealthy')
 st.pyplot(fig_insulin)
 
 
-
+#Famous saying BP
 st.header('Blood Pressure Value Graph (Yours vs Others)')
 fig_bp = plt.figure()
 ax5 = sns.scatterplot(x = 'Age', y = 'BloodPressure', data = df, hue = 'Outcome', palette='Blues')
@@ -128,7 +127,7 @@ plt.title('0 - Healthy & 1 - Unhealthy')
 st.pyplot(fig_bp)
 
 
-
+#Did'nt even know this before nutrition training 
 st.header('BMI Value Graph (Yours vs Others)')
 fig_bmi = plt.figure()
 ax11 = sns.scatterplot(x = 'Age', y = 'BMI', data = df, hue = 'Outcome', palette='Greens')
@@ -139,7 +138,7 @@ plt.title('0 - Healthy & 1 - Unhealthy')
 st.pyplot(fig_bmi)
 
 
-
+#Something new, cool
 st.header('DPF Value Graph (Yours vs Others)')
 fig_dpf = plt.figure()
 ax13 = sns.scatterplot(x = 'Age', y = 'DiabetesPedigreeFunction', data = df, hue = 'Outcome', palette='rocket')
@@ -150,7 +149,7 @@ plt.title('0 - Healthy & 1 - Unhealthy')
 st.pyplot(fig_dpf)
 
 
-
+#Don't even know how thats related to diabetes.The dataset was females only though
 st.header('Pregnancy count Graph (Yours vs Others)')
 fig_pregn = plt.figure()
 ax1 = sns.scatterplot(x = 'Age', y = 'Pregnancies', data = df, hue = 'Outcome', palette = 'magma')
@@ -161,7 +160,7 @@ plt.title('0 - Healthy & 1 - Unhealthy')
 st.pyplot(fig_pregn)
 
 
-
+#Wonder how people measure that 
 st.header('Skin Thickness Value Graph (Yours vs Others)')
 fig_st = plt.figure()
 ax7 = sns.scatterplot(x = 'Age', y = 'SkinThickness', data = df, hue = 'Outcome', palette='Reds')
@@ -172,7 +171,7 @@ plt.title('0 - Healthy & 1 - Unhealthy')
 st.pyplot(fig_st)
 
 
-
+#Finally!
 st.subheader('Your Report: ')
 output=''
 if user_result[0]==0:
@@ -180,9 +179,8 @@ if user_result[0]==0:
 else:
   output = 'Unfortunately, you are Diabetic'
 st.title(output)
-#st.subheader('Accuracy: ')
-#st.write(str(accuracy_score(y_test, rf.predict(x_test))*100)+'%')
 
+#Most important for users
 st.subheader('Lets raise awareness for diabetes and show our support for diabetes awareness and help many patients around the world.')
 st.write("World Diabetes Day: 14 November")
 
