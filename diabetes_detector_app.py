@@ -1,5 +1,7 @@
 #diabetes detector
+#First ML App deployemnt on Streamlit
 #Works perfectly!
+#85+ accuracy, not bad Pranav
 
 
 import streamlit as st
@@ -106,13 +108,13 @@ st.pyplot(fig_glucose)
 
 
 st.header('Insulin Value Graph (Yours vs Others)')
-fig_i = plt.figure()
+fig_insulin = plt.figure()
 ax9 = sns.scatterplot(x = 'Age', y = 'Insulin', data = df, hue = 'Outcome', palette='rainbow')
 ax10 = sns.scatterplot(x = user_data['age'], y = user_data['insulin'], s = 150, color = color)
 plt.xticks(np.arange(10,100,5))
 plt.yticks(np.arange(0,900,50))
 plt.title('0 - Healthy & 1 - Unhealthy')
-st.pyplot(fig_i)
+st.pyplot(fig_insulin)
 
 
 
@@ -150,13 +152,13 @@ st.pyplot(fig_dpf)
 
 
 st.header('Pregnancy count Graph (Yours vs Others)')
-fig_preg = plt.figure()
+fig_pregn = plt.figure()
 ax1 = sns.scatterplot(x = 'Age', y = 'Pregnancies', data = df, hue = 'Outcome', palette = 'magma')
 ax2 = sns.scatterplot(x = user_data['age'], y = user_data['pregnancies'], s = 150, color = color)
 plt.xticks(np.arange(10,100,5))
 plt.yticks(np.arange(0,20,2))
 plt.title('0 - Healthy & 1 - Unhealthy')
-st.pyplot(fig_preg)
+st.pyplot(fig_pregn)
 
 
 
@@ -178,8 +180,8 @@ if user_result[0]==0:
 else:
   output = 'Unfortunately, you are Diabetic'
 st.title(output)
-st.subheader('Accuracy: ')
-st.write(str(accuracy_score(y_test, rf.predict(x_test))*100)+'%')
+#st.subheader('Accuracy: ')
+#st.write(str(accuracy_score(y_test, rf.predict(x_test))*100)+'%')
 
 st.subheader('Lets raise awareness for diabetes and show our support for diabetes awareness and help many patients around the world.')
 st.write("World Diabetes Day: 14 November")
