@@ -184,4 +184,4 @@ st.write(str(accuracy_score(y_test, rf.predict(x_test))*100)+'%')
 st.subheader('Lets raise awareness for diabetes')
 st.write("World Diabetes Day: 14 November")
 
-st.sidebar.subheader("""An article about this project (https://proskillocity.blogspot.com/2021/04/official-launch-of-our-first-web-app.html)from""")
+st.sidebar.subheader("""An article about this project (https://proskillocity.blogspot.com/2021/04/official-launch-of-our-first-web-app.html)""")
