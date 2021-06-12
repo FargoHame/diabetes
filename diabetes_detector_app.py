@@ -181,7 +181,7 @@ st.title(output)
 st.subheader('Accuracy: ')
 st.write(str(accuracy_score(y_test, rf.predict(x_test))*100)+'%')
 
-st.subheader('Lets raise awareness for diabetes')
+st.subheader('Lets raise awareness for diabetes and show our support for diabetes awareness and help many patients around the world.')
 st.write("World Diabetes Day: 14 November")
 
 st.sidebar.subheader("""An article about this app (https://proskillocity.blogspot.com/2021/04/official-launch-of-our-first-web-app.html)""")
