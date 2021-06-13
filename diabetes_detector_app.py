@@ -44,14 +44,14 @@ x_train, x_test, y_train, y_test = train_test_split(x,y, test_size = 0.2, random
 
 #User reports
 def user_report():
-  glucose = st.sidebar.slider('Glucose', 0,200, 100 )
-  insulin = st.sidebar.slider('Insulin', 0,846, 100 )
-  bp = st.sidebar.slider('Blood Pressure', 0,260, 90 )
-  bmi = st.sidebar.slider('BMI', 0,67, 25 )
-  dpf = st.sidebar.slider('Diabetes Pedigree Function', 0.0,2.4, 0.90 )
-  age = st.sidebar.slider('Age', 21,88, 45 )
-  pregnancies = st.sidebar.slider('Pregnancies', 0,17, 2 )
-  skinthickness = st.sidebar.slider('Skin Thickness', 0,100, 25 )
+  glucose = st.sidebar.slider('Glucose', 0,250, 120 )
+  insulin = st.sidebar.slider('Insulin', 0,850, 90 )
+  bp = st.sidebar.slider('Blood Pressure', 0,300, 85 )
+  bmi = st.sidebar.slider('BMI', 0,70, 22 )
+  dpf = st.sidebar.slider('Diabetes Pedigree Function', 0.0,2.6, 0.8 )
+  age = st.sidebar.slider('Age', 21,120, 55 )
+  pregnancies = st.sidebar.slider('Pregnancies', 0,10, 1 )
+  skinthickness = st.sidebar.slider('Skin Thickness', 0,100, 35 )
 
   user_report_data = {
       'glucose':glucose,
